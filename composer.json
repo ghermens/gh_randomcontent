@@ -1,0 +1,29 @@
+{
+  "name": "amazing/gh-randomcontent",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "random"
+  ],
+  "authors": [
+    "name": "Gregor Hermens",
+    "role": "Developer",
+    "homepage": "https://www.a-mazing.de"
+  ],
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "typo3/cms-core": "^8.7.8 || ^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Amazing\\GhRandomcontent\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "gh_randomcontent"
+    }
+  }
+}
