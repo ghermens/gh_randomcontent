@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2017-07-05T08:50:09Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-09-17T06:01:00Z">
 		<header>
 			<authorName>Gregor Hermens</authorName>
 			<authorEmail>gregor.hermens@a-mazing.de</authorEmail>
@@ -21,6 +21,15 @@
 		</trans-unit>
 		<trans-unit id="tt_content.pi_flexform.which_pages">
 			<source>Source page(s)</source>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.default">
+			<source>Default</source>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.no">
+			<source>No</source>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+			<source>Yes</source>
 		</trans-unit>
 		</body>
 	</file>

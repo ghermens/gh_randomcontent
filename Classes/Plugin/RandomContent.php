@@ -102,8 +102,12 @@ class RandomContent extends AbstractPlugin
         }
 
         if ($this->cObj->data['list_type'] == $this->extKey . '_pi1') { // Override $conf with flexform checkboxes
-            $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
-            $this->conf['honorColPos'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF');
+            if ($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
+                $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
+            }
+            if ($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF') !== -1) {
+                $this->conf['honorColPos'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF');
+            }
         }
 
         if ('' == $this->cObj->data['colPos']) {

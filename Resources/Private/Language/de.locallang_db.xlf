@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-07-05T08:50:09Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2019-09-17T06:01:00Z">
 		<header>
 			<authorName>Gregor Hermens</authorName>
 			<authorEmail>gregor.hermens@a-mazing.de</authorEmail>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="tt_content.list_type_pi1" approved="yes">
+		<trans-unit id="tt_content.list_type_pi1">
 			<source>Random Content</source>
 			<target>Zufälliger Inhalt</target>
 		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.count" approved="yes">
+		<trans-unit id="tt_content.pi_flexform.count">
 			<source>Number of elements</source>
 			<target>Anzahl</target>
 		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_colpos" approved="yes">
+		<trans-unit id="tt_content.pi_flexform.honor_colpos">
 			<source>Honor column</source>
 			<target>Spalte beachten</target>
 		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_language" approved="yes">
+		<trans-unit id="tt_content.pi_flexform.honor_language">
 			<source>Honor language</source>
 			<target>Sprache beachten</target>
 		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.which_pages" approved="yes">
+		<trans-unit id="tt_content.pi_flexform.which_pages">
 			<source>Source page(s)</source>
 			<target>Quell-Seite(n)</target>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.default">
+			<source>Default</source>
+			<target>Standard</target>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.no">
+			<source>No</source>
+			<target>Nein</target>
+		</trans-unit>
+		<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+			<source>Yes</source>
+			<target>Ja</target>
 		</trans-unit>
 		</body>
 	</file>
