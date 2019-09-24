@@ -1,13 +1,14 @@
 plugin.tx_ghrandomcontent_pi1 = USER_INT
 plugin.tx_ghrandomcontent_pi1 {
-    userFunc = Amazing\GhRandomcontent\Plugin\RandomContent->main
+  userFunc = Amazing\GhRandomcontent\Plugin\RandomContent->main
 
-    pages = {$plugin.tx_ghrandomcontent.pages}
-    count = {$plugin.tx_ghrandomcontent.count}
-    honorLanguage = {$plugin.tx_ghrandomcontent.honorLanguage}
-    honorColPos = {$plugin.tx_ghrandomcontent.honorColPos}
-    defaultColPos = {$plugin.tx_ghrandomcontent.defaultColPos}
-    elementWrap = {$plugin.tx_ghrandomcontent.elementWrap}
-    allWrap = {$plugin.tx_ghrandomcontent.allWrap}
+  pages = {$plugin.tx_ghrandomcontent.pages}
+  count = {$plugin.tx_ghrandomcontent.count}
+  honorLanguage = {$plugin.tx_ghrandomcontent.honorLanguage}
+  honorColPos = {$plugin.tx_ghrandomcontent.honorColPos}
+  defaultColPos = {$plugin.tx_ghrandomcontent.defaultColPos}
+  elementWrap = {$plugin.tx_ghrandomcontent.elementWrap}
+  allWrap = {$plugin.tx_ghrandomcontent.allWrap}
 }
+
 tt_content.list.20.gh_randomcontent_pi1 =< plugin.tx_ghrandomcontent_pi1

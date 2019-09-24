@@ -7,30 +7,30 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="tt_content.list_type_pi1">
-			<source>Random Content</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.count">
-			<source>Number of elements</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_colpos">
-			<source>Honor column</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_language">
-			<source>Honor language</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.which_pages">
-			<source>Source page(s)</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.default">
-			<source>Default</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.no">
-			<source>No</source>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.yes">
-			<source>Yes</source>
-		</trans-unit>
+			<trans-unit id="tt_content.list_type_pi1">
+				<source>Random Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.count">
+				<source>Number of elements</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.honor_colpos">
+				<source>Honor column</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.honor_language">
+				<source>Honor language</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.which_pages">
+				<source>Source page(s)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.no">
+				<source>No</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+				<source>Yes</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -47,21 +47,27 @@
                     </label>
                     <config>
                         <type>select</type>
-						<renderType>selectSingle</renderType>
-						<items type="array">
-							<numIndex index="0" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default</numIndex>
-								<numIndex index="1">-1</numIndex>
-							</numIndex>
-							<numIndex index="1" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no</numIndex>
-								<numIndex index="1">0</numIndex>
-							</numIndex>
-							<numIndex index="2" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes</numIndex>
-								<numIndex index="1">1</numIndex>
-							</numIndex>
-						</items>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
+                                </numIndex>
+                                <numIndex index="1">-1</numIndex>
+                            </numIndex>
+                            <numIndex index="1" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
+                                </numIndex>
+                                <numIndex index="1">0</numIndex>
+                            </numIndex>
+                            <numIndex index="2" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
+                                </numIndex>
+                                <numIndex index="1">1</numIndex>
+                            </numIndex>
+                        </items>
                     </config>
                 </TCEforms>
             </honor_language>
@@ -71,22 +77,28 @@
                         LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.honor_colpos
                     </label>
                     <config>
-						<type>select</type>
-						<renderType>selectSingle</renderType>
-						<items type="array">
-							<numIndex index="0" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default</numIndex>
-								<numIndex index="1">-1</numIndex>
-							</numIndex>
-							<numIndex index="1" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no</numIndex>
-								<numIndex index="1">0</numIndex>
-							</numIndex>
-							<numIndex index="2" type="array">
-								<numIndex index="0">LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes</numIndex>
-								<numIndex index="1">1</numIndex>
-							</numIndex>
-						</items>
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
+                                </numIndex>
+                                <numIndex index="1">-1</numIndex>
+                            </numIndex>
+                            <numIndex index="1" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
+                                </numIndex>
+                                <numIndex index="1">0</numIndex>
+                            </numIndex>
+                            <numIndex index="2" type="array">
+                                <numIndex index="0">
+                                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
+                                </numIndex>
+                                <numIndex index="1">1</numIndex>
+                            </numIndex>
+                        </items>
                     </config>
                 </TCEforms>
             </honor_colpos>

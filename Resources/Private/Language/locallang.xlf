@@ -7,12 +7,12 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="pi1_plus_wiz_description">
-			<source>Shows random content element(s) from selected page(s)</source>
-		</trans-unit>
-		<trans-unit id="pi1_title">
-			<source>Random Content</source>
-		</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description">
+				<source>Shows random content element(s) from selected page(s)</source>
+			</trans-unit>
+			<trans-unit id="pi1_title">
+				<source>Random Content</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

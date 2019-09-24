@@ -1,22 +1,22 @@
 plugin.tx_ghrandomcontent {
-	# cat=plugin.tx_ghrandomcontent//a; type=text; label=pages: PageIDs from which to take the content elements:
-	pages = 0
+  # cat=plugin.tx_ghrandomcontent//a; type=text; label=pages: PageIDs from which to take the content elements:
+  pages = 0
 
-	# cat=plugin.tx_ghrandomcontent//b; type=int+; label=count: Count of the content elements:
-	count = 1
+  # cat=plugin.tx_ghrandomcontent//b; type=int+; label=count: Count of the content elements:
+  count = 1
 
-	# cat=plugin.tx_ghrandomcontent//c; type=boolean; label=honorLanguage: Take only content elements from the same language:
-	honorLanguage = 0
+  # cat=plugin.tx_ghrandomcontent//c; type=boolean; label=honorLanguage: Take only content elements from the same language:
+  honorLanguage = 0
 
-	# cat=plugin.tx_ghrandomcontent//d; type=boolean; label=honorColPos: Take only content elements from the same column:
-	honorColPos = 0
+  # cat=plugin.tx_ghrandomcontent//d; type=boolean; label=honorColPos: Take only content elements from the same column:
+  honorColPos = 0
 
-	# cat=plugin.tx_ghrandomcontent//e; type=int+; label=defaultColPos: colPos to use if plugin is defined directly in TypoScript setup:
-	defaultColPos = 0
+  # cat=plugin.tx_ghrandomcontent//e; type=int+; label=defaultColPos: colPos to use if plugin is defined directly in TypoScript setup:
+  defaultColPos = 0
 
-	# cat=plugin.tx_ghrandomcontent//f; type=wrap; label=elementWrap: Wrap around each single content element:
-	elementWrap = |
+  # cat=plugin.tx_ghrandomcontent//f; type=wrap; label=elementWrap: Wrap around each single content element:
+  elementWrap = |
 
-	# cat=plugin.tx_ghrandomcontent//g; type=wrap; label=allWrap: Wrap around the whole output:
-	allWrap = <div class="tx-ghrandomcontent-pi1">|</div>
+  # cat=plugin.tx_ghrandomcontent//g; type=wrap; label=allWrap: Wrap around the whole output:
+  allWrap = <div class="tx-ghrandomcontent-pi1">|</div>
 }

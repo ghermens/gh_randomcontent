@@ -7,38 +7,38 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="tt_content.list_type_pi1">
-			<source>Random Content</source>
-			<target>Zufälliger Inhalt</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.count">
-			<source>Number of elements</source>
-			<target>Anzahl</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_colpos">
-			<source>Honor column</source>
-			<target>Spalte beachten</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.honor_language">
-			<source>Honor language</source>
-			<target>Sprache beachten</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.which_pages">
-			<source>Source page(s)</source>
-			<target>Quell-Seite(n)</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.default">
-			<source>Default</source>
-			<target>Standard</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.no">
-			<source>No</source>
-			<target>Nein</target>
-		</trans-unit>
-		<trans-unit id="tt_content.pi_flexform.selectitem.yes">
-			<source>Yes</source>
-			<target>Ja</target>
-		</trans-unit>
+			<trans-unit id="tt_content.list_type_pi1">
+				<source>Random Content</source>
+				<target>Zufälliger Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.count">
+				<source>Number of elements</source>
+				<target>Anzahl</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.honor_colpos">
+				<source>Honor column</source>
+				<target>Spalte beachten</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.honor_language">
+				<source>Honor language</source>
+				<target>Sprache beachten</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.which_pages">
+				<source>Source page(s)</source>
+				<target>Quell-Seite(n)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.default">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.no">
+				<source>No</source>
+				<target>Nein</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+				<source>Yes</source>
+				<target>Ja</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
