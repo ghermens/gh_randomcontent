@@ -21,5 +21,5 @@ $EM_CONF['gh_randomcontent'] = [
             'suggests' =>
                 [],
         ],
-    'version' => '0.9.1',
+    'version' => '0.9.2',
 ];
