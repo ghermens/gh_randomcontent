@@ -30,7 +30,6 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 
 
@@ -72,9 +71,7 @@ class RandomContent extends AbstractPlugin
 
         $content_shown = $this->selectContentUIDs($content_ids);
 
-        $content = $this->renderContent($content_shown, $content_ids);
-
-        return $content;
+        return $this->renderContent($content_shown, $content_ids);
     }
 
 
@@ -102,10 +99,10 @@ class RandomContent extends AbstractPlugin
         }
 
         if ($this->cObj->data['list_type'] == $this->extKey . '_pi1') { // Override $conf with flexform checkboxes
-            if ($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
+            if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
                 $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
             }
-            if ($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF') !== -1) {
+            if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF') !== -1) {
                 $this->conf['honorColPos'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF');
             }
         }
@@ -171,16 +168,13 @@ class RandomContent extends AbstractPlugin
                     'colPos',
                     $queryBuilder->createNamedParameter(
                         $this->conf['colPos'],
-                        \PDO::PARAM_INT
+                        Connection::PARAM_INT
                     )
                 )
             );
         }
 
-        $content_ids = $queryBuilder->execute()
-            ->fetchAll();
-
-        return $content_ids;
+        return $queryBuilder->execute()->fetchAll();
     }
 
     /**
