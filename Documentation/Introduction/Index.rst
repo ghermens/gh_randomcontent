@@ -1,11 +1,9 @@
-.. include:: ../Includes.txt
-
+.. include:: /Includes.txt
 
 .. _introduction:
 
 Introduction
 ============
-
 
 .. _what-it-does:
 
@@ -19,7 +17,7 @@ One or more content elements are chosen by random from one or more selected page
 Screenshots
 -----------
 
-.. figure:: ../Images/plugin_screenshot.png
+.. figure:: /Images/plugin_screenshot.png
     :width: 500px
     :alt: Screenshot of plugin flexform
 

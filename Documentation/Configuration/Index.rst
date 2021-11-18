@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.txt
 
 
 .. _configuration:
@@ -11,131 +11,54 @@ Reference
 
 Properties of plugin.tx_ghrandomcontent_pi1. You can use the Constant Editor to change these settings.
 
-pages
-^^^^^
+.. confval:: pages
 
-.. container:: table-row
+   :type: :ref:`page\_id <t3tsref:data-type-page-id>` / :ref:`list <t3tsref:data-type-list>`
+   :Default: 0
 
-    Property
-        pages
+   IDs of the pages, where the content is stored.
 
-    Data type
-        int+ / list
+.. confval:: count
 
-    Description
-        IDs of the pages, where the content is stored.
+   :type: :ref:`int+ <t3tsref:data-type-intplus>`
+   :Default: 1
 
-    Default
-        0
+   Number of content elements to show.
 
+.. confval:: honorLanguage
 
-count
-^^^^^
+   :type: :ref:`boolean <t3tsref:data-type-boolean>`
+   :Default: 0
 
-.. container:: table-row
+   If :php:`TRUE`, only content elements with the current sys_language_uid are considered.
 
-    Property
-        count
+.. confval:: honorColPos
 
-    Data type
-        int+
+   :type: :ref:`boolean <t3tsref:data-type-boolean>`
+   :Default: 0
 
-    Description
-        Number of content elements to show.
+   If :php:`TRUE`, only content elements with the same column setting like the plugin itself are considered.
 
-    Default
-        1
+.. confval:: defaultColPos
 
+   :type: :ref:`int+ <t3tsref:data-type-intplus>`
+   :Default: 0
 
-honorLanguage
-^^^^^^^^^^^^^
+   Default column for honorColPos if plugin is included in the TypoScript setup.
 
-.. container:: table-row
+.. confval:: elementWrap
 
-    Property
-        honorLanguage
+   :type: :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
+   :Default: |
 
-    Data type
-        boolean
+   Wraps each single content element.
 
-    Description
-        If set, only content elements with the current sys_language_uid are considered.
+.. confval:: allWrap
 
-    Default
-        0
+   :type: :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
+   :Default: <div class=”tx-ghrandomcontent-pi1”>|</div>
 
-
-honorColPos
-^^^^^^^^^^^
-
-.. container:: table-row
-
-    Property
-        honorColPos
-
-    Data type
-        boolean
-
-    Description
-        If set, only content elements with the same column setting like the plugin itself are considered.
-
-    Default
-        0
-
-
-defaultColPos
-^^^^^^^^^^^^^
-
-.. container:: table-row
-
-    Property
-        defaultColPos
-
-    Data type
-        int+
-
-    Description
-        Default column for honorColPos if plugin is included in the TypoScript setup.
-
-    Default
-        0
-
-
-elementWrap
-^^^^^^^^^^^
-
-.. container:: table-row
-
-    Property
-        elementWrap
-
-    Data type
-        wrap / stdWrap
-
-    Description
-        Wraps each single content element.
-
-    Default
-        |
-
-
-allWrap
-^^^^^^^
-
-.. container:: table-row
-
-    Property
-        allWrap
-
-    Data type
-        wrap / stdWrap
-
-    Description
-        Wraps the whole output of the plugin.
-
-    Default
-        <div class=”tx-ghrandomcontent-pi1”>|</div>
-
+   Wraps the whole output of the plugin.
 
 Examples
 --------
