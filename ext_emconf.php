@@ -7,19 +7,22 @@ $EM_CONF['gh_randomcontent'] = [
     'author_company' => '@mazing',
     'category' => 'plugin',
     'state' => 'stable',
-    'uploadfolder' => false,
-    'createDirs' => '',
     'clearCacheOnLoad' => 1,
     'constraints' =>
         [
             'depends' =>
                 [
-                    'typo3' => '8.7.0-10.99.99',
+                    'typo3' => '9.5.0-11.99.99',
                 ],
             'conflicts' =>
                 [],
             'suggests' =>
                 [],
         ],
-    'version' => '0.9.2',
+    'autoload' => [
+        'psr-4' => [
+            'Amazing\\GhRandomcontent\\' => 'Classes',
+        ],
+    ],
+    'version' => '1.0.0',
 ];
