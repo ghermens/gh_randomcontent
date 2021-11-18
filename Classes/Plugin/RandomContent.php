@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Amazing\GhRandomcontent\Plugin;
 
@@ -36,9 +37,9 @@ use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 /**
  * Plugin 'Random Content' for the 'gh_randomcontent' extension.
  *
- * @author        Gregor Hermens <gregor.hermens@a-mazing.de>
- * @package       TYPO3
- * @subpackage    tx_ghrandomcontent
+ * @author Gregor Hermens <gregor.hermens@a-mazing.de>
+ * @package TYPO3
+ * @subpackage tx_ghrandomcontent
  */
 class RandomContent extends AbstractPlugin
 {
@@ -50,19 +51,19 @@ class RandomContent extends AbstractPlugin
     /**
      * The main method of the PlugIn
      *
-     * @param    string $content : The PlugIn content
-     * @param    array $conf : The PlugIn configuration
-     * @return    string        The content that is displayed on the website
+     * @param string $content The PlugIn content
+     * @param array $conf The PlugIn configuration
+     * @return string The content that is displayed on the website
      * @throws \TYPO3\CMS\Core\Context\Exception\AspectNotFoundException
      */
-    public function main($content, $conf)
+    public function main(string $content, array $conf) : string
     {
         $this->init($conf);
 
         $content_ids = $this->getContentUids();
 
         if (!count($content_ids)) { // no content available at all
-            return false;
+            return '';
         }
 
         if ($this->conf['count'] > count($content_ids)) {
@@ -78,10 +79,10 @@ class RandomContent extends AbstractPlugin
     /**
      * Initialise this class
      *
-     * @param    array $conf : The PlugIn configuration
-     * @return    boolean        success
+     * @param array $conf The PlugIn configuration
+     * @return void
      */
-    protected function init($conf)
+    protected function init(array $conf) : void
     {
         $this->conf = $conf;
 
@@ -98,7 +99,7 @@ class RandomContent extends AbstractPlugin
             $this->conf['count'] = 1;
         }
 
-        if ($this->cObj->data['list_type'] == $this->extKey . '_pi1') { // Override $conf with flexform checkboxes
+        if ($this->cObj->data['list_type'] === $this->extKey . '_pi1') { // Override $conf with flexform checkboxes
             if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
                 $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
             }
@@ -107,22 +108,20 @@ class RandomContent extends AbstractPlugin
             }
         }
 
-        if ('' == $this->cObj->data['colPos']) {
+        if ('' === $this->cObj->data['colPos']) {
             $this->conf['colPos'] = $this->conf['defaultColPos'];
         } else {
             $this->conf['colPos'] = $this->cObj->data['colPos'];
         }
-
-        return true;
     }
 
     /**
      * Fetch UID of all available content elements from database
      *
-     * @return    array        List of UIDs and their PIDs
+     * @return array List of UIDs and their PIDs
      * @throws \TYPO3\CMS\Core\Context\Exception\AspectNotFoundException
      */
-    protected function getContentUids()
+    protected function getContentUids() : array
     {
         /** @var Context $context */
         $context = GeneralUtility::makeInstance(Context::class);
@@ -176,14 +175,14 @@ class RandomContent extends AbstractPlugin
     /**
      * Select the content elements to be shown by random
      *
-     * @param    array $content_ids : List of content element UIDs and their PIDs to select from
-     * @return    array        List of content element UIDs and their PIDs
+     * @param array $content_ids List of content element UIDs and their PIDs to select from
+     * @return array List of content element UIDs and their PIDs
      */
-    protected function selectContentUIDs($content_ids = array())
+    protected function selectContentUIDs(array $content_ids = []) : array
     {
         $content_shown = array_rand($content_ids, $this->conf['count']); // choose random content element
         if (1 == $this->conf['count']) {
-            $content_shown = array($content_shown);
+            $content_shown = [$content_shown];
         } else {
             shuffle($content_shown);
         }
@@ -194,23 +193,23 @@ class RandomContent extends AbstractPlugin
     /**
      * Render selected content elements
      *
-     * @param    array $content_shown List of content element UIDs to show
-     * @param    array $content_ids List of all available content element UIDs and their PIDs
-     * @return    string        HTML
+     * @param array $content_shown List of content element UIDs to show
+     * @param array $content_ids List of all available content element UIDs and their PIDs
+     * @return string HTML
      */
-    protected function renderContent($content_shown = array(), $content_ids = array())
+    protected function renderContent(array $content_shown = [], array $content_ids = []) : string
     {
         $content = '';
         foreach ($content_shown as $content_uid) {
             // render content element
-            $content_conf = array(
+            $content_conf = [
                 'table' => 'tt_content',
-                'select.' => array(
+                'select.' => [
                     'uidInList' => $content_ids[$content_uid]['uid'],
                     'pidInList' => $content_ids[$content_uid]['pid'],
                     'languageField' => 0,
-                ),
-            );
+                ],
+            ];
 
             $element = $this->cObj->cObjGetSingle('CONTENT', $content_conf);
 
