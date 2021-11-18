@@ -124,13 +124,9 @@ class RandomContent extends AbstractPlugin
      */
     protected function getContentUids()
     {
-        if (version_compare(TYPO3_branch, '9.5', '>=')) {
-            /** @var Context $context */
-            $context = GeneralUtility::makeInstance(Context::class);
-            $langId = $context->getPropertyFromAspect('language', 'contentId');
-        } else {
-            $langId = $GLOBALS['TSFE']->sys_page->sys_language_uid;
-        }
+        /** @var Context $context */
+        $context = GeneralUtility::makeInstance(Context::class);
+        $langId = $context->getPropertyFromAspect('language', 'contentId');
 
         /** @var QueryBuilder $queryBuilder */
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
