@@ -6,64 +6,135 @@
 Configuration
 =============
 
-Reference
----------
+TypoScript Setup and Constants
+------------------------------
 
 Properties of plugin.tx_ghrandomcontent_pi1. You can use the Constant Editor to change these settings.
 
-.. confval:: pages
+.. _confval-pages:
 
-   :type: :ref:`page\_id <t3tsref:data-type-page-id>` / :ref:`list <t3tsref:data-type-list>`
-   :Default: 0
+pages
+~~~~~
 
+:aspect:`Property:`
+   pages
+
+:aspect:`Data type:`
+   :ref:`page\_id <t3tsref:data-type-page-id>` / :ref:`list <t3tsref:data-type-list>`
+
+:aspect:`Description:`
    IDs of the pages, where the content is stored.
 
-.. confval:: count
+:aspect:`Default:`
+   0
 
-   :type: :ref:`int+ <t3tsref:data-type-intplus>`
-   :Default: 1
+.. _confval-count:
 
+count
+~~~~~
+
+:aspect:`Property:`
+   count
+
+:aspect:`Data type:`
+   :ref:`int+ <t3tsref:data-type-intplus>`
+
+:aspect:`Description:`
    Number of content elements to show.
 
-.. confval:: honorLanguage
+:aspect:`Default:`
+   1
 
-   :type: :ref:`boolean <t3tsref:data-type-boolean>`
-   :Default: 0
+.. _confval-honorLanguage:
 
+honorLanguage
+~~~~~~~~~~~~~
+
+:aspect:`Property:`
+   honorLanguage
+
+:aspect:`Data type:`
+   :ref:`boolean <t3tsref:data-type-boolean>`
+
+:aspect:`Description:`
    If :php:`TRUE`, only content elements with the current sys_language_uid are considered.
 
-.. confval:: honorColPos
+:aspect:`Default:`
+   0
 
-   :type: :ref:`boolean <t3tsref:data-type-boolean>`
-   :Default: 0
+.. _confval-honorColPos:
 
+honorColPos
+~~~~~~~~~~~
+
+:aspect:`Property:`
+   honorColPos
+
+:aspect:`Data type:`
+   :ref:`boolean <t3tsref:data-type-boolean>`
+
+:aspect:`Description:`
    If :php:`TRUE`, only content elements with the same column setting like the plugin itself are considered.
 
-.. confval:: defaultColPos
+:aspect:`Default:`
+   0
 
-   :type: :ref:`int+ <t3tsref:data-type-intplus>`
-   :Default: 0
+.. _confval-defaultColPos:
 
-   Default column for honorColPos if plugin is included in the TypoScript setup.
+defaultColPos
+~~~~~~~~~~~~~
 
-.. confval:: elementWrap
+:aspect:`Property:`
+   defaultColPos
 
-   :type: :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
-   :Default: |
+:aspect:`Data type:`
+   :ref:`int+ <t3tsref:data-type-intplus>`
 
+:aspect:`Description:`
+   Default column for honorColPos if plugin is included in the TypoScript Setup.
+
+:aspect:`Default:`
+   0
+
+.. _confval-elementWrap:
+
+elementWrap
+~~~~~~~~~~~
+
+:aspect:`Property:`
+   elementWrap
+
+:aspect:`Data type:`
+   :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
+
+:aspect:`Description:`
    Wraps each single content element.
 
-.. confval:: allWrap
+:aspect:`Default:`
+   |
 
-   :type: :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
-   :Default: <div class=”tx-ghrandomcontent-pi1”>|</div>
+.. _confval-allWrap:
 
+allWrap
+~~~~~~~
+
+:aspect:`Property:`
+   allWrap
+
+:aspect:`Data type:`
+   :ref:`wrap <t3tsref:data-type-wrap>` / :ref:`stdWrap <t3tsref:stdwrap>`
+
+:aspect:`Description:`
    Wraps the whole output of the plugin.
+
+:aspect:`Default:`
+   <div class=”tx-ghrandomcontent-pi1”>|</div>
+
 
 Examples
 --------
 
-You can include the plugin directly in your TS setup:
+You can include the plugin directly in your TypoScript setup:
 
 .. code-block:: typoscript
 
