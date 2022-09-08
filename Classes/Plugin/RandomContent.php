@@ -31,6 +31,8 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 
 
@@ -41,12 +43,29 @@ use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
  * @package TYPO3
  * @subpackage tx_ghrandomcontent
  */
-class RandomContent extends AbstractPlugin
+class RandomContent
 {
     public $prefixId = 'tx_ghrandomcontent_pi1'; // Same as class name
     public $scriptRelPath = 'Classes/Plugin/RandomContent.php'; // Path to this script relative to the extension dir.
     public $extKey = 'gh_randomcontent'; // The extension key.
     public $pi_checkCHash = true;
+
+    /**
+     * The back-reference to the mother cObj object set at call time
+     */
+    public $cObj;
+
+    /**
+     * This setter is called when the plugin is called from UserContentObject (USER)
+     * via ContentObjectRenderer->callUserFunction().
+     *
+     * @param ContentObjectRenderer $cObj
+     */
+    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
+    {
+        $this->cObj = $cObj;
+    }
+
 
     /**
      * The main method of the PlugIn
@@ -113,6 +132,74 @@ class RandomContent extends AbstractPlugin
         } else {
             $this->conf['colPos'] = $this->cObj->data['colPos'];
         }
+    }
+
+    /**
+     * Converts $this->cObj->data['pi_flexform'] from XML string to flexForm array.
+     *
+     * @param string $field Field name to convert
+     */
+    public function pi_initPIflexForm($field = 'pi_flexform')
+    {
+        // Converting flexform data into array:
+        if (!is_array($this->cObj->data[$field]) && $this->cObj->data[$field]) {
+            $this->cObj->data[$field] = GeneralUtility::xml2array($this->cObj->data[$field]);
+            if (!is_array($this->cObj->data[$field])) {
+                $this->cObj->data[$field] = [];
+            }
+        }
+    }
+
+    /**
+     * Return value from somewhere inside a FlexForm structure
+     *
+     * @param array $T3FlexForm_array FlexForm data
+     * @param string $fieldName Field name to extract. Can be given like "test/el/2/test/el/field_templateObject" where each part will dig a level deeper in the FlexForm data.
+     * @param string $sheet Sheet pointer, eg. "sDEF
+     * @param string $lang Language pointer, eg. "lDEF
+     * @param string $value Value pointer, eg. "vDEF
+     * @return string|null The content.
+     */
+    public function pi_getFFvalue($T3FlexForm_array, $fieldName, $sheet = 'sDEF', $lang = 'lDEF', $value = 'vDEF')
+    {
+        $sheetArray = is_array($T3FlexForm_array) ? $T3FlexForm_array['data'][$sheet][$lang] : '';
+        if (is_array($sheetArray)) {
+            return $this->pi_getFFvalueFromSheetArray($sheetArray, explode('/', $fieldName), $value);
+        }
+        return null;
+    }
+
+
+    /**
+     * Returns part of $sheetArray pointed to by the keys in $fieldNameArray
+     *
+     * @param array $sheetArray Multidimensional array, typically FlexForm contents
+     * @param array $fieldNameArr Array where each value points to a key in the FlexForms content - the input array will have the value returned pointed to by these keys. All integer keys will not take their integer counterparts, but rather traverse the current position in the array and return element number X (whether this is right behavior is not settled yet...)
+     * @param string $value Value for outermost key, typ. "vDEF" depending on language.
+     * @return mixed The value, typ. string.
+     * @internal
+     * @see pi_getFFvalue()
+     */
+    public function pi_getFFvalueFromSheetArray($sheetArray, $fieldNameArr, $value)
+    {
+        $tempArr = $sheetArray;
+        foreach ($fieldNameArr as $k => $v) {
+            if (MathUtility::canBeInterpretedAsInteger($v)) {
+                if (is_array($tempArr)) {
+                    $c = 0;
+                    foreach ($tempArr as $values) {
+                        if ($c == $v) {
+                            $tempArr = $values;
+                            break;
+                        }
+                        $c++;
+                    }
+                }
+            } else {
+                $tempArr = $tempArr[$v];
+            }
+        }
+        return $tempArr[$value];
     }
 
     /**
