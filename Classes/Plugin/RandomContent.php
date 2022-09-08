@@ -6,7 +6,7 @@ namespace Amazing\GhRandomcontent\Plugin;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2008-2019 Gregor Hermens (gregor.hermens@a-mazing.de)
+ *  (c) 2008-2022 Gregor Hermens (gregor.hermens@a-mazing.de)
  *  based on onet_randomcontent (c) 2005 Semyon Vyskubov (poizon@onet.ru)
  *  All rights reserved
  *
