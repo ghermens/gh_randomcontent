@@ -1,32 +1,35 @@
 {
-  "name": "amazing/gh-randomcontent",
-  "type": "typo3-cms-extension",
-  "description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
-  "keywords": [
-    "TYPO3",
-    "extension",
-    "random"
-  ],
-  "authors": [
-    {
-      "name": "Gregor Hermens",
-      "email": "gregor.hermens@a-mazing.de",
-      "role": "Developer",
-      "homepage": "https://www.a-mazing.de"
-    }
-  ],
-  "license": "GPL-2.0-or-later",
-  "require": {
-    "typo3/cms-core": "~9.5.20 || ~10.4.6 || ~11.5.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "Amazing\\GhRandomcontent\\": "Classes"
-    }
-  },
-  "extra": {
-    "typo3/cms": {
-      "extension-key": "gh_randomcontent"
-    }
-  }
+	"name": "amazing/gh-randomcontent",
+	"type": "typo3-cms-extension",
+	"description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
+	"keywords": [
+		"TYPO3",
+		"extension",
+		"random"
+	],
+	"authors": [
+		{
+			"name": "Gregor Hermens",
+			"email": "gregor.hermens@a-mazing.de",
+			"role": "Developer",
+			"homepage": "https://www.a-mazing.de"
+		}
+	],
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"typo3/cms-core": "~9.5.20 || ~10.4.6 || ~11.5.2"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
+	},
+	"autoload": {
+		"psr-4": {
+			"Amazing\\GhRandomcontent\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "gh_randomcontent"
+		}
+	}
 }
