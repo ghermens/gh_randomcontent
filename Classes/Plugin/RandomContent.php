@@ -52,7 +52,7 @@ class RandomContent
     /**
      * The back-reference to the mother cObj object set at call time
      */
-    public $cObj;
+    protected $cObj;
 
     /**
      * This setter is called when the plugin is called from UserContentObject (USER)
