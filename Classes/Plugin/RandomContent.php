@@ -272,7 +272,7 @@ class RandomContent implements SiteLanguageAwareInterface
             );
         }
 
-        return $queryBuilder->executeQuery()->fetchAllNumeric();
+        return $queryBuilder->executeQuery()->fetchAllAssociative();
     }
 
     /**
