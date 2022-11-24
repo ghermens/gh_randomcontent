@@ -27,9 +27,12 @@ namespace Amazing\GhRandomcontent\Plugin;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
+use TYPO3\CMS\Core\Site\SiteLanguageAwareInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -42,12 +45,14 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  * @package TYPO3
  * @subpackage tx_ghrandomcontent
  */
-class RandomContent
+class RandomContent implements SiteLanguageAwareInterface
 {
     public $prefixId = 'tx_ghrandomcontent_pi1'; // Same as class name
     public $scriptRelPath = 'Classes/Plugin/RandomContent.php'; // Path to this script relative to the extension dir.
     public $extKey = 'gh_randomcontent'; // The extension key.
     public $pi_checkCHash = true;
+
+    protected SiteLanguage $siteLanguage;
 
     /**
      * The back-reference to the mother cObj object set at call time
@@ -65,6 +70,22 @@ class RandomContent
         $this->cObj = $cObj;
     }
 
+    /**
+     * @param SiteLanguage $siteLanguage
+     * @return void
+     */
+    public function setSiteLanguage(SiteLanguage $siteLanguage)
+    {
+        $this->siteLanguage = $siteLanguage;
+    }
+
+    /**
+     * @return SiteLanguage
+     */
+    public function getSiteLanguage(): SiteLanguage
+    {
+        return $this->siteLanguage;
+    }
 
     /**
      * The main method of the PlugIn
@@ -72,7 +93,7 @@ class RandomContent
      * @param string $content The PlugIn content
      * @param array $conf The PlugIn configuration
      * @return string The content that is displayed on the website
-     * @throws \TYPO3\CMS\Core\Context\Exception\AspectNotFoundException
+     * @throws AspectNotFoundException
      */
     public function main(string $content, array $conf) : string
     {
@@ -205,14 +226,10 @@ class RandomContent
      * Fetch UID of all available content elements from database
      *
      * @return array List of UIDs and their PIDs
-     * @throws \TYPO3\CMS\Core\Context\Exception\AspectNotFoundException
+     * @throws AspectNotFoundException
      */
     protected function getContentUids() : array
     {
-        /** @var Context $context */
-        $context = GeneralUtility::makeInstance(Context::class);
-        $langId = $context->getPropertyFromAspect('language', 'contentId');
-
         /** @var QueryBuilder $queryBuilder */
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
 
@@ -234,7 +251,7 @@ class RandomContent
                     'sys_language_uid',
                     $queryBuilder->createNamedParameter(
                         [
-                            $langId,
+                            $this->siteLanguage->getLanguageId(),
                             -1
                         ],
                         Connection::PARAM_INT_ARRAY
@@ -255,7 +272,7 @@ class RandomContent
             );
         }
 
-        return $queryBuilder->execute()->fetchAll();
+        return $queryBuilder->executeQuery()->fetchAllNumeric();
     }
 
     /**
