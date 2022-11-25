@@ -12,7 +12,7 @@ $EM_CONF['gh_randomcontent'] = [
         [
             'depends' =>
                 [
-                    'typo3' => '11.0.0-12.99.99',
+                    'typo3' => '11.5.2-12.99.99',
                 ],
             'conflicts' =>
                 [],
@@ -24,5 +24,5 @@ $EM_CONF['gh_randomcontent'] = [
             'Amazing\\GhRandomcontent\\' => 'Classes',
         ],
     ],
-    'version' => '1.2.0-dev',
+    'version' => '1.2.0',
 ];
