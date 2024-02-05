@@ -1,0 +1,97 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <ROOT>
+        <sheetTitle>
+            LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.settings
+        </sheetTitle>
+        <type>array</type>
+        <el>
+            <which_pages>
+                <exclude>0</exclude>
+                <label>
+                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.which_pages
+                </label>
+                <config>
+                    <type>group</type>
+                    <internal_type>db</internal_type>
+                    <allowed>pages</allowed>
+                    <size>3</size>
+                    <maxitems>22</maxitems>
+                    <minitems>0</minitems>
+                    <show_thumbs>1</show_thumbs>
+                </config>
+            </which_pages>
+            <count>
+                <label>
+                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.count
+                </label>
+                <config>
+                    <type>input</type>
+                    <size>3</size>
+                    <max>5</max>
+                    <eval>trim</eval>
+                </config>
+            </count>
+            <honor_language>
+                <label>
+                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.honor_language
+                </label>
+                <config>
+                    <type>select</type>
+                    <renderType>selectSingle</renderType>
+                    <items type="array">
+                        <numIndex index="0" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
+                            </numIndex>
+                            <numIndex index="1">-1</numIndex>
+                        </numIndex>
+                        <numIndex index="1" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
+                            </numIndex>
+                            <numIndex index="1">0</numIndex>
+                        </numIndex>
+                        <numIndex index="2" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
+                            </numIndex>
+                            <numIndex index="1">1</numIndex>
+                        </numIndex>
+                    </items>
+                </config>
+            </honor_language>
+            <honor_colpos>
+                <label>
+                    LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.honor_colpos
+                </label>
+                <config>
+                    <type>select</type>
+                    <renderType>selectSingle</renderType>
+                    <items type="array">
+                        <numIndex index="0" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
+                            </numIndex>
+                            <numIndex index="1">-1</numIndex>
+                        </numIndex>
+                        <numIndex index="1" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
+                            </numIndex>
+                            <numIndex index="1">0</numIndex>
+                        </numIndex>
+                        <numIndex index="2" type="array">
+                            <numIndex index="0">
+                                LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
+                            </numIndex>
+                            <numIndex index="1">1</numIndex>
+                        </numIndex>
+                    </items>
+                </config>
+            </honor_colpos>
+        </el>
+    </ROOT>
+</T3DataStructure>
