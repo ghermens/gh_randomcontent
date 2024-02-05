@@ -133,7 +133,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
         }
 
         foreach ($records as $record) {
-            $explicitAllowdeny = str_replace('tt_content:list_type:gh_randomcontent_pi1', 'tt_content:CType:gh_randomcontent_pi1', $record['explicit_allowdeny']);
+            $explicitAllowdeny = str_replace('tt_content:list_type:gh_randomcontent_pi1', 'tt_content:CType:ghrandomcontent_pi1', $record['explicit_allowdeny']);
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('be_groups');
             $queryBuilder->update('be_groups')
                 ->set('explicit_allowdeny', $explicitAllowdeny)
