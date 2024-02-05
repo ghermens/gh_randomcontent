@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2019-09-17T06:01:00Z">
+	<file source-language="en" datatype="plaintext" original="EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf" date="2024-02-05T08:52:00Z">
 		<header>
 			<authorName>Gregor Hermens</authorName>
 			<authorEmail>gregor.hermens@a-mazing.de</authorEmail>
-			<generator>LFEditor</generator>
 		</header>
 		<body>
-			<trans-unit id="tt_content.list_type_pi1">
+			<trans-unit id="tt_content.ghrandomcontent_pi1" resname="tt_content.ghrandomcontent_pi1">
 				<source>Random Content</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.count">
+			<trans-unit id="tt_content.ghrandomcontent_pi1.description" resname="tt_content.ghrandomcontent_pi1.description">
+				<source>Shows random content element(s) from selected page(s)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.count" resname="tt_content.pi_flexform.count">
 				<source>Number of elements</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.honor_colpos">
+			<trans-unit id="tt_content.pi_flexform.honor_colpos" resname="tt_content.pi_flexform.honor_colpos">
 				<source>Honor column</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.honor_language">
+			<trans-unit id="tt_content.pi_flexform.honor_language" resname="tt_content.pi_flexform.honor_language">
 				<source>Honor language</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.which_pages">
+			<trans-unit id="tt_content.pi_flexform.which_pages" resname="tt_content.pi_flexform.which_pages">
 				<source>Source page(s)</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.default">
+			<trans-unit id="tt_content.pi_flexform.selectitem.default" resname="tt_content.pi_flexform.selectitem.default">
 				<source>Default</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.no">
+			<trans-unit id="tt_content.pi_flexform.selectitem.no" resname="tt_content.pi_flexform.selectitem.no">
 				<source>No</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+			<trans-unit id="tt_content.pi_flexform.selectitem.yes" resname="tt_content.pi_flexform.selectitem.yes">
 				<source>Yes</source>
 			</trans-unit>
 		</body>

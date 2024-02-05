@@ -11,4 +11,8 @@ plugin.tx_ghrandomcontent_pi1 {
   allWrap = {$plugin.tx_ghrandomcontent.allWrap}
 }
 
-tt_content.list.20.gh_randomcontent_pi1 =< plugin.tx_ghrandomcontent_pi1
+tt_content.ghrandomcontent_pi1 =< lib.contentElement
+tt_content.ghrandomcontent_pi1 {
+  templateName = Generic
+  20 =< plugin.tx_ghrandomcontent_pi1
+}

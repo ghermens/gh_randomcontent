@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2019-09-17T06:01:00Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:gh_randomcontent/Resources/Private/Language/de.locallang_db.xlf" date="2024-02-05T08:52:00Z">
 		<header>
 			<authorName>Gregor Hermens</authorName>
 			<authorEmail>gregor.hermens@a-mazing.de</authorEmail>
-			<generator>LFEditor</generator>
 		</header>
 		<body>
-			<trans-unit id="tt_content.list_type_pi1">
+			<trans-unit id="tt_content.ghrandomcontent_pi1" resname="tt_content.ghrandomcontent_pi1" approved="yes">
 				<source>Random Content</source>
 				<target>Zufälliger Inhalt</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.count">
+			<trans-unit id="tt_content.ghrandomcontent_pi1.description" resname="tt_content.ghrandomcontent_pi1.description" approved="yes">
+				<source>Shows random content element(s) from selected page(s)</source>
+				<target>Zeigt zufällig Inhaltselement(e) aus ausgewählten Seiten an.</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.count" resname="tt_content.pi_flexform.count" approved="yes">
 				<source>Number of elements</source>
 				<target>Anzahl</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.honor_colpos">
+			<trans-unit id="tt_content.pi_flexform.honor_colpos" resname="tt_content.pi_flexform.honor_colpos" approved="yes">
 				<source>Honor column</source>
 				<target>Spalte beachten</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.honor_language">
+			<trans-unit id="tt_content.pi_flexform.honor_language" resname="tt_content.pi_flexform.honor_language" approved="yes">
 				<source>Honor language</source>
 				<target>Sprache beachten</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.which_pages">
+			<trans-unit id="tt_content.pi_flexform.which_pages" resname="tt_content.pi_flexform.which_pages" approved="yes">
 				<source>Source page(s)</source>
 				<target>Quell-Seite(n)</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.default">
+			<trans-unit id="tt_content.pi_flexform.selectitem.default" resname="tt_content.pi_flexform.selectitem.default" approved="yes">
 				<source>Default</source>
 				<target>Standard</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.no">
+			<trans-unit id="tt_content.pi_flexform.selectitem.no" resname="tt_content.pi_flexform.selectitem.no" approved="yes">
 				<source>No</source>
 				<target>Nein</target>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.yes">
+			<trans-unit id="tt_content.pi_flexform.selectitem.yes" resname="tt_content.pi_flexform.selectitem.yes" approved="yes">
 				<source>Yes</source>
 				<target>Ja</target>
 			</trans-unit>
