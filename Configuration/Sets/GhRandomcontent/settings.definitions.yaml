@@ -1,0 +1,36 @@
+settings:
+  plugin.tx_ghrandomcontent.pages:
+    label: Pages
+    description: List of page ids from which to take the content elements
+    type: string
+    default: '0'
+  plugin.tx_ghrandomcontent.count:
+    label: Count
+    description: Number of content elements
+    type: int
+    default: 1
+  plugin.tx_ghrandomcontent.honorLanguage:
+    label: Honor Language
+    description: Take only content elements from the same language
+    type: bool
+    default: true
+  plugin.tx_ghrandomcontent.honorColPos:
+    label: Honor ColPos
+    description: Take only content elements from the same column
+    type: bool
+    default: true
+  plugin.tx_ghrandomcontent.defaultColPos:
+    label: Default ColPos
+    description: colPos to use if plugin is defined directly in TypoScript setup
+    type: int
+    default: 0
+  plugin.tx_ghrandomcontent.elementWrap:
+    label: Element Wrap
+    description: Wrap around each single content element
+    type: string
+    default: '|'
+  plugin.tx_ghrandomcontent.allWrap:
+    label: All Wrap
+    description: Wrap around the whole output
+    type: string
+    default: '<div class="tx-ghrandomcontent-pi1">|</div>'
