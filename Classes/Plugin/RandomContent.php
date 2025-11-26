@@ -6,7 +6,7 @@ namespace Amazing\GhRandomcontent\Plugin;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2008-2023 Gregor Hermens (gregor.hermens@a-mazing.de)
+ *  (c) 2008-2025 Gregor Hermens (gregor.hermens@a-mazing.de)
  *  based on onet_randomcontent (c) 2005 Semyon Vyskubov (poizon@onet.ru)
  *  All rights reserved
  *
@@ -56,6 +56,9 @@ class RandomContent
      * The back-reference to the mother cObj object set at call time
      */
     protected $cObj;
+
+    public function __construct(private readonly Context $context, private readonly ConnectionPool $connectionPool)
+    {}
 
     /**
      * This setter is called when the plugin is called from UserContentObject (USER)
@@ -212,11 +215,10 @@ class RandomContent
     protected function getContentUids() : array
     {
         /** @var Context $context */
-        $context = GeneralUtility::makeInstance(Context::class);
-        $langId = $context->getPropertyFromAspect('language', 'contentId');
+        $langId = $this->context->getPropertyFromAspect('language', 'contentId');
 
         /** @var QueryBuilder $queryBuilder */
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
 
         $queryBuilder->select('uid', 'pid')
             ->from('tt_content')

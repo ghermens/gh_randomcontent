@@ -13,6 +13,8 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 #[UpgradeWizard('ghrandomcontent_migratePlugins')]
 final class PluginUpgradeWizard implements UpgradeWizardInterface
 {
+    public function __construct(private ConnectionPool $connectionPool)
+    {}
 
 	/**
 	 * @inheritDoc
@@ -61,7 +63,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
      */
     protected function getContentMigrationRecords(): array
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
 
         return $queryBuilder
@@ -86,7 +88,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
      */
     protected function getBeGroupsMigrationRecords(): array
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('be_groups');
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('be_groups');
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
 
         return $queryBuilder
@@ -111,7 +113,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
 
         foreach ($records as $record)
         {
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+            $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
             $queryBuilder->update('tt_content')
                 ->set('CType', 'ghrandomcontent_pi1')
                 ->set('list_type', '')
@@ -134,7 +136,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
 
         foreach ($records as $record) {
             $explicitAllowdeny = str_replace('tt_content:list_type:gh_randomcontent_pi1', 'tt_content:CType:ghrandomcontent_pi1', $record['explicit_allowdeny']);
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('be_groups');
+            $queryBuilder = $this->connectionPool->getQueryBuilderForTable('be_groups');
             $queryBuilder->update('be_groups')
                 ->set('explicit_allowdeny', $explicitAllowdeny)
                 ->where(
