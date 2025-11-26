@@ -15,7 +15,6 @@
                 </label>
                 <config>
                     <type>group</type>
-                    <internal_type>db</internal_type>
                     <allowed>pages</allowed>
                     <size>3</size>
                     <maxitems>22</maxitems>
@@ -43,22 +42,22 @@
                     <renderType>selectSingle</renderType>
                     <items type="array">
                         <numIndex index="0" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
-                            </numIndex>
-                            <numIndex index="1">-1</numIndex>
+                            </label>
+                            <value>-1</value>
                         </numIndex>
                         <numIndex index="1" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
-                            </numIndex>
-                            <numIndex index="1">0</numIndex>
+                            </label>
+                            <value>0</value>
                         </numIndex>
                         <numIndex index="2" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
-                            </numIndex>
-                            <numIndex index="1">1</numIndex>
+                            </label>
+                            <value>1</value>
                         </numIndex>
                     </items>
                 </config>
@@ -72,22 +71,22 @@
                     <renderType>selectSingle</renderType>
                     <items type="array">
                         <numIndex index="0" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.default
-                            </numIndex>
-                            <numIndex index="1">-1</numIndex>
+                            </label>
+                            <value>-1</value>
                         </numIndex>
                         <numIndex index="1" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.no
-                            </numIndex>
-                            <numIndex index="1">0</numIndex>
+                            </label>
+                            <value>0</value>
                         </numIndex>
                         <numIndex index="2" type="array">
-                            <numIndex index="0">
+                            <label>
                                 LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.selectitem.yes
-                            </numIndex>
-                            <numIndex index="1">1</numIndex>
+                            </label>
+                            <value>1</value>
                         </numIndex>
                     </items>
                 </config>
