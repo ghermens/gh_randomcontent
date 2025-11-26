@@ -7,6 +7,7 @@ use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
@@ -14,7 +15,7 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 #[UpgradeWizard('ghrandomcontent_migratePlugins')]
 final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
 {
-    public function __construct(private ConnectionPool $connectionPool)
+    public function __construct(private ConnectionPool $connectionPool, private readonly Typo3Version $typo3Version)
     {}
 
 	/**
@@ -48,6 +49,9 @@ final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
 	 */
 	public function updateNecessary(): bool
 	{
+        if ($this->typo3Version->getMajorVersion() > 13) {
+            return false;
+        }
 		return (count($this->getContentMigrationRecords()) > 0 || count($this->getBeGroupsMigrationRecords()) > 0);
 	}
 
