@@ -11,7 +11,7 @@ $EM_CONF['gh_randomcontent'] = [
         [
             'depends' =>
                 [
-                    'typo3' => '12.4.0-13.4.99',
+                    'typo3' => '12.4.0-14.99.99',
                 ],
             'conflicts' =>
                 [],
