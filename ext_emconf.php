@@ -7,7 +7,6 @@ $EM_CONF['gh_randomcontent'] = [
     'author_company' => '@mazing',
     'category' => 'plugin',
     'state' => 'stable',
-    'clearCacheOnLoad' => true,
     'constraints' =>
         [
             'depends' =>

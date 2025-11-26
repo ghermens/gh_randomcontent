@@ -1,5 +1,8 @@
 <?php
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -31,7 +34,7 @@ $GLOBALS['TCA']['tt_content']['types']['ghrandomcontent_pi1'] = [
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,',
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:gh_randomcontent/Configuration/FlexForm/PluginRandomContent.xml',
     'ghrandomcontent_pi1'

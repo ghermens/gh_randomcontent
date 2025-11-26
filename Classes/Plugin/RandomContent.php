@@ -26,6 +26,8 @@ namespace Amazing\GhRandomcontent\Plugin;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Database\Connection;
@@ -79,7 +81,8 @@ class RandomContent
      * @return string The content that is displayed on the website
      * @throws AspectNotFoundException
      */
-    public function main(string $content, array $conf) : string
+    #[AsAllowedCallable]
+    public function main(string $content, array $conf): string
     {
         $this->init($conf);
 
@@ -105,7 +108,7 @@ class RandomContent
      * @param array $conf The PlugIn configuration
      * @return void
      */
-    protected function init(array $conf) : void
+    protected function init(array $conf): void
     {
         $this->conf = $conf;
 
@@ -131,11 +134,7 @@ class RandomContent
             }
         }
 
-        if ('' === $this->cObj->data['colPos']) {
-            $this->conf['colPos'] = $this->conf['defaultColPos'];
-        } else {
-            $this->conf['colPos'] = $this->cObj->data['colPos'];
-        }
+        $this->conf['colPos'] = '' === $this->cObj->data['colPos'] ? $this->conf['defaultColPos'] : $this->cObj->data['colPos'];
     }
 
     /**
@@ -143,7 +142,7 @@ class RandomContent
      *
      * @param string $field Field name to convert
      */
-    public function pi_initPIflexForm($field = 'pi_flexform')
+    public function pi_initPIflexForm($field = 'pi_flexform'): void
     {
         // Converting flexform data into array:
         if (!is_array($this->cObj->data[$field]) && $this->cObj->data[$field]) {
@@ -164,7 +163,7 @@ class RandomContent
      * @param string $value Value pointer, eg. "vDEF
      * @return string|null The content.
      */
-    public function pi_getFFvalue($T3FlexForm_array, $fieldName, $sheet = 'sDEF', $lang = 'lDEF', $value = 'vDEF')
+    public function pi_getFFvalue($T3FlexForm_array, $fieldName, $sheet = 'sDEF', $lang = 'lDEF', $value = 'vDEF'): ?string
     {
         $sheetArray = is_array($T3FlexForm_array) ? $T3FlexForm_array['data'][$sheet][$lang] : '';
         if (is_array($sheetArray)) {
@@ -184,7 +183,7 @@ class RandomContent
      * @internal
      * @see pi_getFFvalue()
      */
-    public function pi_getFFvalueFromSheetArray($sheetArray, $fieldNameArr, $value)
+    public function pi_getFFvalueFromSheetArray($sheetArray, $fieldNameArr, $value): mixed
     {
         $tempArr = $sheetArray;
         foreach ($fieldNameArr as $k => $v) {
@@ -212,7 +211,7 @@ class RandomContent
      * @return array List of UIDs and their PIDs
      * @throws AspectNotFoundException
      */
-    protected function getContentUids() : array
+    protected function getContentUids(): array
     {
         /** @var Context $context */
         $langId = $this->context->getPropertyFromAspect('language', 'contentId');
@@ -268,7 +267,7 @@ class RandomContent
      * @param array $content_ids List of content element UIDs and their PIDs to select from
      * @return array List of content element UIDs and their PIDs
      */
-    protected function selectContentUIDs(array $content_ids = []) : array
+    protected function selectContentUIDs(array $content_ids = []): array
     {
         $content_shown = array_rand($content_ids, $this->conf['count']); // choose random content element
         if (1 == $this->conf['count']) {
@@ -287,7 +286,7 @@ class RandomContent
      * @param array $content_ids List of all available content element UIDs and their PIDs
      * @return string HTML
      */
-    protected function renderContent(array $content_shown = [], array $content_ids = []) : string
+    protected function renderContent(array $content_shown = [], array $content_ids = []): string
     {
         $content = '';
         foreach ($content_shown as $content_uid) {

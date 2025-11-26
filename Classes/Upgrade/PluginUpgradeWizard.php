@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Amazing\GhRandomcontent\Upgrade;
 
+use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -11,7 +12,7 @@ use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('ghrandomcontent_migratePlugins')]
-final class PluginUpgradeWizard implements UpgradeWizardInterface
+final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
 {
     public function __construct(private ConnectionPool $connectionPool)
     {}
@@ -59,7 +60,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
 	}
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     protected function getContentMigrationRecords(): array
     {
@@ -84,7 +85,7 @@ final class PluginUpgradeWizard implements UpgradeWizardInterface
     }
 
     /**
-     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     protected function getBeGroupsMigrationRecords(): array
     {
