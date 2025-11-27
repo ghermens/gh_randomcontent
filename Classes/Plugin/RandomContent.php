@@ -6,7 +6,7 @@ namespace Amazing\GhRandomcontent\Plugin;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2008-2023 Gregor Hermens (gregor.hermens@a-mazing.de)
+ *  (c) 2008-2025 Gregor Hermens (gregor.hermens@a-mazing.de)
  *  based on onet_randomcontent (c) 2005 Semyon Vyskubov (poizon@onet.ru)
  *  All rights reserved
  *
@@ -47,17 +47,12 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class RandomContent
 {
-    public $prefixId = 'tx_ghrandomcontent_pi1'; // Same as class name
-    public $scriptRelPath = 'Classes/Plugin/RandomContent.php'; // Path to this script relative to the extension dir.
-    public $extKey = 'gh_randomcontent'; // The extension key.
-    public $pi_checkCHash = true;
-
     protected $conf = [];
 
     /**
      * The back-reference to the mother cObj object set at call time
      */
-    protected $cObj;
+    protected ?ContentObjectRenderer $cObj = null;
 
     /**
      * This setter is called when the plugin is called from UserContentObject (USER)
@@ -122,7 +117,7 @@ class RandomContent
             $this->conf['count'] = 1;
         }
 
-        if ($this->cObj->data['list_type'] === $this->extKey . '_pi1') { // Override $conf with flexform checkboxes
+        if ($this->cObj->data['CType'] === 'ghrandomcontent_pi1') { // Override $conf with flexform checkboxes
             if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
                 $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
             }
