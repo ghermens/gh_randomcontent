@@ -5,9 +5,6 @@ plugin.tx_ghrandomcontent {
   # cat=plugin.tx_ghrandomcontent//b; type=int+; label=count: Count of the content elements:
   count = 1
 
-  # cat=plugin.tx_ghrandomcontent//c; type=boolean; label=honorLanguage: Take only content elements from the same language:
-  honorLanguage = 0
-
   # cat=plugin.tx_ghrandomcontent//d; type=boolean; label=honorColPos: Take only content elements from the same column:
   honorColPos = 0
 

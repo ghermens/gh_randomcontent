@@ -118,9 +118,6 @@ class RandomContent
         }
 
         if ($this->cObj->data['CType'] === 'ghrandomcontent_pi1') { // Override $conf with flexform checkboxes
-            if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF') !== -1) {
-                $this->conf['honorLanguage'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_language', 'sDEF');
-            }
             if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF') !== -1) {
                 $this->conf['honorColPos'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF');
             }
@@ -222,10 +219,8 @@ class RandomContent
                         Connection::PARAM_INT_ARRAY
                     )
                 )
-            );
-
-        if ($this->conf['honorLanguage']) {
-            $queryBuilder->andWhere(
+            )
+            ->andWhere(
                 $queryBuilder->expr()->in(
                     'sys_language_uid',
                     $queryBuilder->createNamedParameter(
@@ -237,7 +232,6 @@ class RandomContent
                     )
                 )
             );
-        }
 
         if ($this->conf['honorColPos']) {
             $queryBuilder->andWhere(

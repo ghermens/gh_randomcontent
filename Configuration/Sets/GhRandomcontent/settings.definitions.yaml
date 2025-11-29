@@ -9,11 +9,6 @@ settings:
     description: Number of content elements
     type: int
     default: 1
-  plugin.tx_ghrandomcontent.honorLanguage:
-    label: Honor Language
-    description: Take only content elements from the same language
-    type: bool
-    default: true
   plugin.tx_ghrandomcontent.honorColPos:
     label: Honor ColPos
     description: Take only content elements from the same column
