@@ -23,5 +23,5 @@ $EM_CONF['gh_randomcontent'] = [
             'Amazing\\GhRandomcontent\\' => 'Classes',
         ],
     ],
-    'version' => '1.3.2',
+    'version' => '1.4.0',
 ];
