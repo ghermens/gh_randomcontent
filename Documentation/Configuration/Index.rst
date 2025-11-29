@@ -1,6 +1,3 @@
-.. include:: /Includes.txt
-
-
 .. _configuration:
 
 Configuration
@@ -20,7 +17,7 @@ pages
    pages
 
 :aspect:`Data type:`
-   :ref:`page\_id <t3tsref:data-type-page-id>` / :ref:`list <t3tsref:data-type-list>`
+   :ref:`integer <t3tsref:data-type-integer>` / list
 
 :aspect:`Description:`
    IDs of the pages, where the content is stored.
@@ -37,30 +34,13 @@ count
    count
 
 :aspect:`Data type:`
-   :ref:`int+ <t3tsref:data-type-intplus>`
+   :ref:`integer <t3tsref:data-type-integer>`
 
 :aspect:`Description:`
    Number of content elements to show.
 
 :aspect:`Default:`
    1
-
-.. _confval-honorLanguage:
-
-honorLanguage
-~~~~~~~~~~~~~
-
-:aspect:`Property:`
-   honorLanguage
-
-:aspect:`Data type:`
-   :ref:`boolean <t3tsref:data-type-boolean>`
-
-:aspect:`Description:`
-   If :php:`TRUE`, only content elements with the current sys_language_uid are considered.
-
-:aspect:`Default:`
-   0
 
 .. _confval-honorColPos:
 
@@ -88,7 +68,7 @@ defaultColPos
    defaultColPos
 
 :aspect:`Data type:`
-   :ref:`int+ <t3tsref:data-type-intplus>`
+   :ref:`integer <t3tsref:data-type-integer>`
 
 :aspect:`Description:`
    Default column for honorColPos if plugin is included in the TypoScript Setup.
@@ -141,7 +121,6 @@ You can include the plugin directly in your TypoScript setup:
     plugin.tx_ghrandomcontent_pi1 {
       pages = 12,15
       count = 1
-      honorLanguage = 1
       honorColPos = 1
       defaultColPos = 0
     }

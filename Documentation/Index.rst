@@ -1,5 +1,3 @@
-.. include:: /Includes.txt
-
 .. _start:
 
 ==============
@@ -57,3 +55,4 @@ on the top right to submit your change request.
    User/Index
    Administrator/Index
    Configuration/Index
+   ChangeLog/Index
