@@ -209,7 +209,7 @@ class RandomContent
         /** @var QueryBuilder $queryBuilder */
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
 
-        $queryBuilder->select('uid', 'pid')
+        $queryBuilder->select('uid')
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->in(
@@ -279,15 +279,12 @@ class RandomContent
         foreach ($content_shown as $content_uid) {
             // render content element
             $content_conf = [
-                'table' => 'tt_content',
-                'select.' => [
-                    'uidInList' => $content_ids[$content_uid]['uid'],
-                    'pidInList' => $content_ids[$content_uid]['pid'],
-                    'languageField' => 0,
-                ],
+                'tables' => 'tt_content',
+                'source' => $content_ids[$content_uid]['uid'],
+                'dontCheckPid' => '1',
             ];
 
-            $element = $this->cObj->cObjGetSingle('CONTENT', $content_conf);
+            $element = $this->cObj->cObjGetSingle('RECORDS', $content_conf);
 
             if (!empty($this->conf['elementWrap.'])) {
                 $element = $this->cObj->stdWrap($element, $this->conf['elementWrap.']);
