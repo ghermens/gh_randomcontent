@@ -4,17 +4,18 @@
             <path d="M 32 32 v -30 a 30 30 0 0 1 25.9807 15 z"/>
         </g>
         <g id="arrow">
-            <path d="M 32 8 a 24 24 0 0 1 24 24 h 5 l -8 8 l -8 -8 h 5 a 18 18 0 0 0 -18 -18 z" fill="#fff" stroke="#000"/>
+            <path d="M 32 8 a 24 24 0 0 1 24 24 h 5 l -8 8 l -8 -8 h 5 a 18 18 0 0 0 -18 -18 z" fill="#fff"
+                  stroke="#000"/>
         </g>
     </defs>
     <rect width="64" height="64" fill="#888"/>
     <rect x="2" y="2" width="60" height="60" fill="#fff"/>
     <use href="#segment" transform="rotate(30)" transform-origin="32 32" fill="#f00"/>
-    <use href="#segment" transform="rotate(90)" transform-origin="32 32" fill="#ff0" />
-    <use href="#segment" transform="rotate(150)" transform-origin="32 32" fill="#0f0" />
-    <use href="#segment" transform="rotate(210)" transform-origin="32 32 " fill="#f0f" />
-    <use href="#segment" transform="rotate(270)" transform-origin="32 32" fill="#00f" />
-    <use href="#segment" transform="rotate(330)" transform-origin="32 32" fill="#0ff" />
+    <use href="#segment" transform="rotate(90)" transform-origin="32 32" fill="#ff0"/>
+    <use href="#segment" transform="rotate(150)" transform-origin="32 32" fill="#0f0"/>
+    <use href="#segment" transform="rotate(210)" transform-origin="32 32 " fill="#f0f"/>
+    <use href="#segment" transform="rotate(270)" transform-origin="32 32" fill="#00f"/>
+    <use href="#segment" transform="rotate(330)" transform-origin="32 32" fill="#0ff"/>
     <use href="#arrow" transform="rotate(37)" transform-origin="32 32"/>
     <use href="#arrow" transform="rotate(217)" transform-origin="32 32"/>
     <path d="M 29 1 h 6 l -3 10 z" stroke="#000" stroke-width="1" fill="#aaa"/>

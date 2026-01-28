@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf" date="2024-02-05T08:52:00Z">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf" date="2024-02-05T08:52:00Z">
 		<header>
 			<authorName>Gregor Hermens</authorName>
 			<authorEmail>gregor.hermens@a-mazing.de</authorEmail>
@@ -9,7 +10,8 @@
 			<trans-unit id="tt_content.ghrandomcontent_pi1" resname="tt_content.ghrandomcontent_pi1">
 				<source>Random Content</source>
 			</trans-unit>
-			<trans-unit id="tt_content.ghrandomcontent_pi1.description" resname="tt_content.ghrandomcontent_pi1.description">
+			<trans-unit id="tt_content.ghrandomcontent_pi1.description"
+						resname="tt_content.ghrandomcontent_pi1.description">
 				<source>Shows random content element(s) from selected page(s)</source>
 			</trans-unit>
 			<trans-unit id="tt_content.pi_flexform.count" resname="tt_content.pi_flexform.count">
@@ -24,7 +26,8 @@
 			<trans-unit id="tt_content.pi_flexform.which_pages" resname="tt_content.pi_flexform.which_pages">
 				<source>Source page(s)</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.selectitem.default" resname="tt_content.pi_flexform.selectitem.default">
+			<trans-unit id="tt_content.pi_flexform.selectitem.default"
+						resname="tt_content.pi_flexform.selectitem.default">
 				<source>Default</source>
 			</trans-unit>
 			<trans-unit id="tt_content.pi_flexform.selectitem.no" resname="tt_content.pi_flexform.selectitem.no">

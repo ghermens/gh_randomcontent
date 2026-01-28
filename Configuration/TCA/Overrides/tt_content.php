@@ -8,9 +8,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     [
         'label' => 'LLL:EXT:gh_randomcontent/Resources/Private/Language/locallang_db.xlf:tt_content.ghrandomcontent_pi1',
         'value' => 'ghrandomcontent_pi1',
-        'icon' => 'tx-ghrandomcontent-plugin',
+        'icon'  => 'tx-ghrandomcontent-plugin',
         'group' => 'special',
-    ]
+    ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['ghrandomcontent_pi1'] = [
@@ -37,5 +37,5 @@ $GLOBALS['TCA']['tt_content']['types']['ghrandomcontent_pi1'] = [
 ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:gh_randomcontent/Configuration/FlexForm/PluginRandomContent.xml',
-    'ghrandomcontent_pi1'
+    'ghrandomcontent_pi1',
 );

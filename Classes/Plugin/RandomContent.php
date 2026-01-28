@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Amazing\GhRandomcontent\Plugin;
@@ -41,8 +42,8 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 /**
  * Plugin 'Random Content' for the 'gh_randomcontent' extension.
  *
- * @author Gregor Hermens <gregor.hermens@a-mazing.de>
- * @package TYPO3
+ * @author     Gregor Hermens <gregor.hermens@a-mazing.de>
+ * @package    TYPO3
  * @subpackage tx_ghrandomcontent
  */
 class RandomContent
@@ -69,7 +70,7 @@ class RandomContent
      * The main method of the PlugIn
      *
      * @param string $content The PlugIn content
-     * @param array $conf The PlugIn configuration
+     * @param array  $conf    The PlugIn configuration
      * @return string The content that is displayed on the website
      * @throws AspectNotFoundException
      */
@@ -119,7 +120,11 @@ class RandomContent
 
         if ($this->cObj->data['CType'] === 'ghrandomcontent_pi1') { // Override $conf with flexform checkboxes
             if ((int)$this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF') !== -1) {
-                $this->conf['honorColPos'] = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'honor_colpos', 'sDEF');
+                $this->conf['honorColPos'] = $this->pi_getFFvalue(
+                    $this->cObj->data['pi_flexform'],
+                    'honor_colpos',
+                    'sDEF',
+                );
             }
         }
 
@@ -145,15 +150,22 @@ class RandomContent
     /**
      * Return value from somewhere inside a FlexForm structure
      *
-     * @param array $T3FlexForm_array FlexForm data
-     * @param string $fieldName Field name to extract. Can be given like "test/el/2/test/el/field_templateObject" where each part will dig a level deeper in the FlexForm data.
-     * @param string $sheet Sheet pointer, eg. "sDEF
-     * @param string $lang Language pointer, eg. "lDEF
-     * @param string $value Value pointer, eg. "vDEF
+     * @param array  $T3FlexForm_array FlexForm data
+     * @param string $fieldName        Field name to extract. Can be given like
+     *                                 "test/el/2/test/el/field_templateObject" where each part will dig a level deeper
+     *                                 in the FlexForm data.
+     * @param string $sheet            Sheet pointer, eg. "sDEF
+     * @param string $lang             Language pointer, eg. "lDEF
+     * @param string $value            Value pointer, eg. "vDEF
      * @return string|null The content.
      */
-    public function pi_getFFvalue($T3FlexForm_array, $fieldName, $sheet = 'sDEF', $lang = 'lDEF', $value = 'vDEF'): ?string
-    {
+    public function pi_getFFvalue(
+        $T3FlexForm_array,
+        $fieldName,
+        $sheet = 'sDEF',
+        $lang = 'lDEF',
+        $value = 'vDEF',
+    ): ?string {
         $sheetArray = is_array($T3FlexForm_array) ? $T3FlexForm_array['data'][$sheet][$lang] : '';
         if (is_array($sheetArray)) {
             return $this->pi_getFFvalueFromSheetArray($sheetArray, explode('/', $fieldName), $value);
@@ -165,9 +177,13 @@ class RandomContent
     /**
      * Returns part of $sheetArray pointed to by the keys in $fieldNameArray
      *
-     * @param array $sheetArray Multidimensional array, typically FlexForm contents
-     * @param array $fieldNameArr Array where each value points to a key in the FlexForms content - the input array will have the value returned pointed to by these keys. All integer keys will not take their integer counterparts, but rather traverse the current position in the array and return element number X (whether this is right behavior is not settled yet...)
-     * @param string $value Value for outermost key, typ. "vDEF" depending on language.
+     * @param array  $sheetArray   Multidimensional array, typically FlexForm contents
+     * @param array  $fieldNameArr Array where each value points to a key in the FlexForms content - the input array
+     *                             will have the value returned pointed to by these keys. All integer keys will not
+     *                             take their integer counterparts, but rather traverse the current position in the
+     *                             array and return element number X (whether this is right behavior is not settled
+     *                             yet...)
+     * @param string $value        Value for outermost key, typ. "vDEF" depending on language.
      * @return mixed The value, typ. string.
      * @internal
      * @see pi_getFFvalue()
@@ -209,16 +225,17 @@ class RandomContent
         /** @var QueryBuilder $queryBuilder */
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
 
-        $queryBuilder->select('uid')
+        $queryBuilder
+            ->select('uid')
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->in(
                     'pid',
                     $queryBuilder->createNamedParameter(
                         GeneralUtility::intExplode(',', $this->conf['pages'], true),
-                        Connection::PARAM_INT_ARRAY
-                    )
-                )
+                        Connection::PARAM_INT_ARRAY,
+                    ),
+                ),
             )
             ->andWhere(
                 $queryBuilder->expr()->in(
@@ -226,12 +243,13 @@ class RandomContent
                     $queryBuilder->createNamedParameter(
                         [
                             $langId,
-                            -1
+                            -1,
                         ],
-                        Connection::PARAM_INT_ARRAY
-                    )
-                )
-            );
+                        Connection::PARAM_INT_ARRAY,
+                    ),
+                ),
+            )
+        ;
 
         if ($this->conf['honorColPos']) {
             $queryBuilder->andWhere(
@@ -239,9 +257,9 @@ class RandomContent
                     'colPos',
                     $queryBuilder->createNamedParameter(
                         $this->conf['colPos'],
-                        Connection::PARAM_INT
-                    )
-                )
+                        Connection::PARAM_INT,
+                    ),
+                ),
             );
         }
 
@@ -270,7 +288,7 @@ class RandomContent
      * Render selected content elements
      *
      * @param array $content_shown List of content element UIDs to show
-     * @param array $content_ids List of all available content element UIDs and their PIDs
+     * @param array $content_ids   List of all available content element UIDs and their PIDs
      * @return string HTML
      */
     protected function renderContent(array $content_shown = [], array $content_ids = []): string
@@ -279,8 +297,8 @@ class RandomContent
         foreach ($content_shown as $content_uid) {
             // render content element
             $content_conf = [
-                'tables' => 'tt_content',
-                'source' => $content_ids[$content_uid]['uid'],
+                'tables'       => 'tt_content',
+                'source'       => $content_ids[$content_uid]['uid'],
                 'dontCheckPid' => '1',
             ];
 

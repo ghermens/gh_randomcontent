@@ -4,24 +4,29 @@ $EM_CONF['gh_randomcontent'] = [
     'description' => 'This frontend plugin shows random content elements from selected page(s).',
     'author' => 'Gregor Hermens',
     'author_email' => 'gregor.hermens@a-mazing.de',
+
+    'title'          => 'GH Random Content',
+    'description'    => 'This frontend plugin shows random content elements from selected page(s).',
+    'author'         => 'Gregor Hermens',
+    'author_email'   => 'gregor.hermens@a-mazing.de',
     'author_company' => '@mazing',
-    'category' => 'plugin',
-    'state' => 'stable',
-    'constraints' =>
+    'category'       => 'plugin',
+    'state'          => 'stable',
+    'constraints'    =>
         [
-            'depends' =>
+            'depends'   =>
                 [
                     'typo3' => '12.4.0-14.99.99',
                 ],
             'conflicts' =>
                 [],
-            'suggests' =>
+            'suggests'  =>
                 [],
         ],
-    'autoload' => [
+    'autoload'       => [
         'psr-4' => [
             'Amazing\\GhRandomcontent\\' => 'Classes',
         ],
     ],
-    'version' => '1.4.0',
+    'version'        => '1.4.0',
 ];
