@@ -1,10 +1,6 @@
 <?php
-$EM_CONF['gh_randomcontent'] = [
-    'title' => 'GH Random Content',
-    'description' => 'This frontend plugin shows random content elements from selected page(s).',
-    'author' => 'Gregor Hermens',
-    'author_email' => 'gregor.hermens@a-mazing.de',
 
+$EM_CONF[$_EXTKEY] = [
     'title'          => 'GH Random Content',
     'description'    => 'This frontend plugin shows random content elements from selected page(s).',
     'author'         => 'Gregor Hermens',
