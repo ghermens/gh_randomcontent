@@ -24,5 +24,5 @@ $EM_CONF[$_EXTKEY] = [
             'Amazing\\GhRandomcontent\\' => 'Classes',
         ],
     ],
-    'version'        => '1.4.0',
+    'version'        => '1.4.1',
 ];

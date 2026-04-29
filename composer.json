@@ -16,8 +16,9 @@
 		}
 	],
 	"license": "GPL-2.0-or-later",
+	"version": "1.4.1",
 	"require": {
-		"typo3/cms-core": "^12.4 || ^13.2 || ^14.0"
+		"typo3/cms-core": "^12.4 || ^13.2 || ^14.3"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-latest"
@@ -29,7 +30,10 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "gh_randomcontent"
+			"extension-key": "gh_randomcontent",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
 	}
 }
