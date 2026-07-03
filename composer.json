@@ -1,8 +1,8 @@
 {
     "name": "amazing/gh-randomcontent",
-    "type": "typo3-cms-extension",
     "description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
     "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
     "keywords": [
         "TYPO3",
         "extension",
@@ -12,8 +12,8 @@
         {
             "name": "Gregor Hermens",
             "email": "gregor.hermens@a-mazing.de",
-            "role": "Developer",
-            "homepage": "https://www.a-mazing.de"
+            "homepage": "https://www.a-mazing.de",
+            "role": "Developer"
         }
     ],
     "support": {
@@ -27,7 +27,7 @@
             "url": "https://paypal.me/gregorhermens"
         }
     ],
-	"require": {
+    "require": {
         "typo3/cms-core": "^12.4 || ^13.2 || ^14.3"
     },
     "require-dev": {
@@ -43,6 +43,18 @@
             "Amazing\\GhRandomcontent\\": "Classes"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "bin-dir": ".Build/bin",
+        "platform": {
+            "php": "8.2.0"
+        },
+        "vendor-dir": ".Build/vendor"
+    },
     "extra": {
         "typo3/cms": {
             "Package": {
@@ -53,17 +65,5 @@
             "version": "1.4.1",
             "web-dir": ".Build/public"
         }
-    },
-    "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true,
-			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
-		},
-		"platform": {
-			"php": "8.2.0"
-		},
-        "bin-dir": ".Build/bin",
-        "vendor-dir": ".Build/vendor"
     }
 }
