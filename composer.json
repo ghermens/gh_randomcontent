@@ -1,50 +1,69 @@
 {
-	"name": "amazing/gh-randomcontent",
-	"type": "typo3-cms-extension",
-	"description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"TYPO3",
-		"extension",
-		"random"
-	],
-	"authors": [
-		{
-			"name": "Gregor Hermens",
-			"email": "gregor.hermens@a-mazing.de",
-			"role": "Developer",
-			"homepage": "https://www.a-mazing.de"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/ghermens/gh_randomcontent/issues",
-		"source": "https://github.com/ghermens/gh_randomcontent",
-		"docs": "https://docs.typo3.org/p/amazing/gh-randomcontent/main/en-us/"
-	},
-	"funding": [
-		{
-			"type": "paypal",
-			"url": "https://paypal.me/gregorhermens"
-		}
-	],
+    "name": "amazing/gh-randomcontent",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 frontend plugin to show random content elements from selected page(s).",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "random"
+    ],
+    "authors": [
+        {
+            "name": "Gregor Hermens",
+            "email": "gregor.hermens@a-mazing.de",
+            "role": "Developer",
+            "homepage": "https://www.a-mazing.de"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ghermens/gh_randomcontent/issues",
+        "source": "https://github.com/ghermens/gh_randomcontent",
+        "docs": "https://docs.typo3.org/p/amazing/gh-randomcontent/main/en-us/"
+    },
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://paypal.me/gregorhermens"
+        }
+    ],
 	"require": {
-		"typo3/cms-core": "^12.4 || ^13.2 || ^14.3"
-	},
-	"require-dev": {
-		"roave/security-advisories": "dev-latest"
-	},
-	"autoload": {
-		"psr-4": {
-			"Amazing\\GhRandomcontent\\": "Classes"
-		}
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "gh_randomcontent",
-			"version": "1.4.1",
-			"Package": {
-				"providesPackages": {}
-			}
-		}
-	}
+        "typo3/cms-core": "^12.4 || ^13.2 || ^14.3"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.44",
+        "phpstan/phpstan": "^2.1.25",
+        "phpunit/phpunit": "^11.2.5",
+        "roave/security-advisories": "dev-latest",
+        "typo3/coding-standards": "^0.8",
+        "typo3/testing-framework": "^9.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amazing\\GhRandomcontent\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "Package": {
+                "providesPackages": []
+            },
+            "app-dir": ".Build",
+            "extension-key": "gh_randomcontent",
+            "version": "1.4.1",
+            "web-dir": ".Build/public"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"platform": {
+			"php": "8.2.0"
+		},
+        "bin-dir": ".Build/bin",
+        "vendor-dir": ".Build/vendor"
+    }
 }

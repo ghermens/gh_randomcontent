@@ -1,2 +1,7 @@
+.idea
+.Build
 .sass-cache
 Documentation-GENERATED-temp
+composer.json.testing
+composer.lock
+var
