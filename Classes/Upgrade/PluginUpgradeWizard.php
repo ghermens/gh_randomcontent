@@ -52,7 +52,7 @@ final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
         if ($this->typo3Version->getMajorVersion() > 13) {
             return false;
         }
-        return (count($this->getContentMigrationRecords()) > 0 || count($this->getBeGroupsMigrationRecords()) > 0);
+        return count($this->getContentMigrationRecords()) > 0 || count($this->getBeGroupsMigrationRecords()) > 0;
     }
 
     /**
@@ -64,6 +64,8 @@ final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
     }
 
     /**
+     * @return array<mixed>
+     *
      * @throws Exception
      */
     protected function getContentMigrationRecords(): array
@@ -90,6 +92,8 @@ final readonly class PluginUpgradeWizard implements UpgradeWizardInterface
     }
 
     /**
+     * @return array<mixed>
+     *
      * @throws Exception
      */
     protected function getBeGroupsMigrationRecords(): array

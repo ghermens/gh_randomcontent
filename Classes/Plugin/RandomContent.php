@@ -38,17 +38,15 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-
 /**
  * Plugin 'Random Content' for the 'gh_randomcontent' extension.
  *
  * @author     Gregor Hermens <gregor.hermens@a-mazing.de>
- * @package    TYPO3
- * @subpackage tx_ghrandomcontent
  */
 class RandomContent
 {
-    protected $conf = [];
+    /** @var array<mixed> */
+    protected array $conf = [];
 
     /**
      * The back-reference to the mother cObj object set at call time
@@ -70,7 +68,7 @@ class RandomContent
      * The main method of the PlugIn
      *
      * @param string $content The PlugIn content
-     * @param array  $conf    The PlugIn configuration
+     * @param array<mixed>  $conf    The PlugIn configuration
      * @return string The content that is displayed on the website
      * @throws AspectNotFoundException
      */
@@ -94,12 +92,10 @@ class RandomContent
         return $this->renderContent($content_shown, $content_ids);
     }
 
-
     /**
      * Initialise this class
      *
-     * @param array $conf The PlugIn configuration
-     * @return void
+     * @param array<mixed> $conf The PlugIn configuration
      */
     protected function init(array $conf): void
     {
@@ -128,7 +124,7 @@ class RandomContent
             }
         }
 
-        $this->conf['colPos'] = '' === $this->cObj->data['colPos'] ? $this->conf['defaultColPos'] : $this->cObj->data['colPos'];
+        $this->conf['colPos'] = $this->cObj->data['colPos'] === '' ? $this->conf['defaultColPos'] : $this->cObj->data['colPos'];
     }
 
     /**
@@ -150,7 +146,7 @@ class RandomContent
     /**
      * Return value from somewhere inside a FlexForm structure
      *
-     * @param array  $T3FlexForm_array FlexForm data
+     * @param array<mixed>  $T3FlexForm_array FlexForm data
      * @param string $fieldName        Field name to extract. Can be given like
      *                                 "test/el/2/test/el/field_templateObject" where each part will dig a level deeper
      *                                 in the FlexForm data.
@@ -160,25 +156,24 @@ class RandomContent
      * @return string|null The content.
      */
     public function pi_getFFvalue(
-        $T3FlexForm_array,
-        $fieldName,
-        $sheet = 'sDEF',
-        $lang = 'lDEF',
-        $value = 'vDEF',
+        array $T3FlexForm_array,
+        string $fieldName,
+        string $sheet = 'sDEF',
+        string $lang = 'lDEF',
+        string $value = 'vDEF',
     ): ?string {
-        $sheetArray = is_array($T3FlexForm_array) ? $T3FlexForm_array['data'][$sheet][$lang] : '';
+        $sheetArray = $T3FlexForm_array['data'][$sheet][$lang] ?? '';
         if (is_array($sheetArray)) {
             return $this->pi_getFFvalueFromSheetArray($sheetArray, explode('/', $fieldName), $value);
         }
         return null;
     }
 
-
     /**
      * Returns part of $sheetArray pointed to by the keys in $fieldNameArray
      *
-     * @param array  $sheetArray   Multidimensional array, typically FlexForm contents
-     * @param array  $fieldNameArr Array where each value points to a key in the FlexForms content - the input array
+     * @param array<mixed>  $sheetArray   Multidimensional array, typically FlexForm contents
+     * @param array<mixed>  $fieldNameArr Array where each value points to a key in the FlexForms content - the input array
      *                             will have the value returned pointed to by these keys. All integer keys will not
      *                             take their integer counterparts, but rather traverse the current position in the
      *                             array and return element number X (whether this is right behavior is not settled
@@ -188,7 +183,7 @@ class RandomContent
      * @internal
      * @see pi_getFFvalue()
      */
-    public function pi_getFFvalueFromSheetArray($sheetArray, $fieldNameArr, $value): mixed
+    public function pi_getFFvalueFromSheetArray(array $sheetArray, array $fieldNameArr, string $value): mixed
     {
         $tempArr = $sheetArray;
         foreach ($fieldNameArr as $k => $v) {
@@ -213,7 +208,7 @@ class RandomContent
     /**
      * Fetch UID of all available content elements from database
      *
-     * @return array List of UIDs and their PIDs
+     * @return array<mixed> List of UIDs and their PIDs
      * @throws AspectNotFoundException
      */
     protected function getContentUids(): array
@@ -269,13 +264,13 @@ class RandomContent
     /**
      * Select the content elements to be shown by random
      *
-     * @param array $content_ids List of content element UIDs and their PIDs to select from
-     * @return array List of content element UIDs and their PIDs
+     * @param array<mixed> $content_ids List of content element UIDs and their PIDs to select from
+     * @return array<mixed> List of content element UIDs and their PIDs
      */
     protected function selectContentUIDs(array $content_ids = []): array
     {
         $content_shown = array_rand($content_ids, $this->conf['count']); // choose random content element
-        if (1 == $this->conf['count']) {
+        if ((int)$this->conf['count'] === 1) {
             $content_shown = [$content_shown];
         } else {
             shuffle($content_shown);
@@ -287,8 +282,8 @@ class RandomContent
     /**
      * Render selected content elements
      *
-     * @param array $content_shown List of content element UIDs to show
-     * @param array $content_ids   List of all available content element UIDs and their PIDs
+     * @param array<mixed> $content_shown List of content element UIDs to show
+     * @param array<mixed> $content_ids   List of all available content element UIDs and their PIDs
      * @return string HTML
      */
     protected function renderContent(array $content_shown = [], array $content_ids = []): string
