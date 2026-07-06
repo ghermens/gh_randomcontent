@@ -7,8 +7,7 @@ namespace Amazing\GhRandomcontent\Plugin;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2008-2025 Gregor Hermens (gregor.hermens@a-mazing.de)
- *  based on onet_randomcontent (c) 2005 Semyon Vyskubov (poizon@onet.ru)
+ *  (c) 2008-2026 Gregor Hermens (gregor.hermens@a-mazing.de)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -83,11 +82,7 @@ class RandomContent
             return '';
         }
 
-        if ($this->conf['count'] > count($content_ids)) {
-            $this->conf['count'] = count($content_ids);
-        }
-
-        $content_shown = $this->selectContentUIDs($content_ids);
+        $content_shown = $this->selectContentUIDs($content_ids, $this->conf['count']);
 
         return $this->renderContent($content_shown, $content_ids);
     }
@@ -264,26 +259,29 @@ class RandomContent
     /**
      * Select the content elements to be shown by random
      *
-     * @param array<mixed> $content_ids List of content element UIDs and their PIDs to select from
-     * @return array<mixed> List of content element UIDs and their PIDs
+     * @param array<mixed> $content_ids List of content element UIDs
+     * @param int $count Number of content elements to show
+     * @return array<mixed> Randomly selected keys of content element UIDs from $content_ids
      */
-    protected function selectContentUIDs(array $content_ids = []): array
+    protected function selectContentUIDs(array $content_ids = [], int $count = 1): array
     {
-        $content_shown = array_rand($content_ids, $this->conf['count']); // choose random content element
-        if ((int)$this->conf['count'] === 1) {
+        if ($count > count($content_ids)) {
+            $count = count($content_ids);
+        }
+        $content_shown = array_rand($content_ids, $count); // choose random content element
+        if ($count === 1) {
             $content_shown = [$content_shown];
         } else {
             shuffle($content_shown);
         }
-
         return $content_shown;
     }
 
     /**
      * Render selected content elements
      *
-     * @param array<mixed> $content_shown List of content element UIDs to show
-     * @param array<mixed> $content_ids   List of all available content element UIDs and their PIDs
+     * @param array<int> $content_shown   Keys of content element UIDs to show
+     * @param array<mixed> $content_ids   List of all available content element UIDs
      * @return string HTML
      */
     protected function renderContent(array $content_shown = [], array $content_ids = []): string
