@@ -191,8 +191,8 @@ Options:
 
     -p <8.2|8.3|8.4|8.5>
         Specifies the PHP minor version to be used
-            - 8.2: use PHP 8.2
-            - 8.3: use PHP 8.3 (default)
+            - 8.2: use PHP 8.2 (default)
+            - 8.3: use PHP 8.3
             - 8.4: use PHP 8.4
             - 8.5: use PHP 8.5
 
@@ -242,7 +242,7 @@ TEST_SUITE="cgl"
 DATABASE_DRIVER=""
 DBMS="sqlite"
 DBMS_VERSION=""
-PHP_VERSION="8.3"
+PHP_VERSION="8.2"
 PHP_XDEBUG_ON=0
 PHP_XDEBUG_PORT=9003
 CGLCHECK_DRY_RUN=0
