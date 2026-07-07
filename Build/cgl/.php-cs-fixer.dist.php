@@ -13,8 +13,8 @@ return (new Config())
     ->setFinder(
         (new Finder())
             ->in(__DIR__ . '/../../')
-            ->exclude(__DIR__ . '/../../.Build')
-            ->exclude(__DIR__ . '/../../var'),
+            ->exclude('/../../.Build')
+            ->exclude('/../../var/cache/code/di'),
     )
     ->setRiskyAllowed(true)
     ->setRules([

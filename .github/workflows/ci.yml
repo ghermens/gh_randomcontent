@@ -4,7 +4,7 @@ on: [pull_request, workflow_dispatch]
 
 jobs:
   cgl:
-    name: Coding Guuidelines
+    name: Coding Guidelines
 
     runs-on: ubuntu-latest
 
@@ -15,9 +15,6 @@ jobs:
       - name: 'Lint PHP'
         run: Build/Scripts/runTests.sh -p 8.2 -s lint
 
-      - name: 'Install testing system'
-        run: Build/Scripts/runTests.sh -p 8.2 -s composerUpdate
-
       - name: 'Composer validate'
         run: Build/Scripts/runTests.sh -p 8.2 -s composerValidate
 
@@ -25,7 +22,7 @@ jobs:
         run: Build/Scripts/runTests.sh -p 8.2 -s composerNormalize -n
 
       - name: 'CGL'
-        run: Build/Scripts/runTests.sh -p 8.2 -s cgl -n 2>&1
+        run: Build/Scripts/runTests.sh -p 8.2 -s cgl -n
 
   testing:
     name: Testing
