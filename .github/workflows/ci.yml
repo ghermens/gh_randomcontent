@@ -25,7 +25,7 @@ jobs:
         run: Build/Scripts/runTests.sh -p 8.2 -s composerNormalize -n
 
       - name: 'CGL'
-        run: Build/Scripts/runTests.sh -p 8.2 -s cgl -n
+        run: Build/Scripts/runTests.sh -p 8.2 -s cgl -n 2>&1
 
   testing:
     name: Testing
